@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.david.bajela.a6211project.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.david.bajela.a6211project.UI.Fragments.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragmet"
+        android:name="com.david.bajela.a6211project.UI.Fragments.RegisterFragmet"
+        android:label="register_fragment"
+        tools:layout="@layout/register_fragment" >
+        <action
+            android:id="@+id/action_registerFragmet_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.david.bajela.a6211project.UI.Fragments.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragmet"
+            app:destination="@id/registerFragmet" />
+        <action
+            android:id="@+id/action_loginFragment_to_mesageFragment"
+            app:destination="@id/mesageFragment"
+            app:popUpTo="@id/nav_graph" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="com.david.bajela.a6211project.UI.Fragments.NoteFragment"
+        android:label="NoteFragment" >
+        <action
+            android:id="@+id/action_noteFragment_to_mesageFragment"
+            app:destination="@id/mesageFragment" />
+        <action
+            android:id="@+id/action_noteFragment_to_camFragment"
+            app:destination="@id/camFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mesageFragment"
+        android:name="com.david.bajela.a6211project.UI.Fragments.RecyclerView.MesageFragment"
+        android:label="MesageFragment"
+        tools:layout="@layout/fragment_item_list">
+        <action
+            android:id="@+id/action_mesageFragment_to_noteFragment"
+            app:destination="@id/noteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/camFragment"
+        android:name="com.david.bajela.a6211project.UI.Fragments.CamFragment"
+        android:label="CamFragment" >
+        <action
+            android:id="@+id/action_camFragment_to_noteFragment"
+            app:destination="@id/noteFragment" />
+    </fragment>
+</navigation>
